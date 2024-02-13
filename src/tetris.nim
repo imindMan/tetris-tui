@@ -11,21 +11,12 @@
 # ###### DECLARATION ########
 # ###########################
 import illwill, os
-include utils/pagerender
-import pages/homepage {.all.}
-import pages/hahapage {.all.}
+import utils/pagerender {.all.}
+import utils/render {.all.}
 # ###########################
 # ##### INITIALIZATION ######
 # ###########################
-
-var pageRender: PageRender = newPageRender("Home")
-
-
-proc render(pagerender: var PageRender, tb: var TerminalBuffer, key: var Key) = 
-    case pagerender.page
-        of "Home": Homepage(pagerender, tb, key) 
-        of "Haha": hahapage(pagerender, tb, key)
-
+var pr: PageRender = newPageRender("Home")
 
 proc exitProc() {.noconv.} = 
 # INFO: This function is for exiting the program. Not really that special
@@ -42,7 +33,7 @@ proc main() =
      while true:
        var tb = newTerminalBuffer(terminalWidth(), terminalHeight())
        var key = getKey()
-       pageRender.render(tb, key)
+       pr.render(tb, key)
        tb.display()
        sleep(20)
 

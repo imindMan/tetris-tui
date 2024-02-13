@@ -1,8 +1,7 @@
 import illwill
-import ../utils/pagerender {.all.}
+import ../utils/pagerender {.all.} 
 
-
-proc hahapage(pagerender: var PageRender, tb: var TerminalBuffer, key: var Key) = 
+proc Hahapage_render(pagerender: var PageRender, tb: var TerminalBuffer, key: var Key) = 
     tb.clear()
     tb.write(0, 0, "Well, I can't avoid anything")
 
