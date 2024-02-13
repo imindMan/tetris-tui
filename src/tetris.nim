@@ -34,6 +34,10 @@ proc main() =
        var tb = newTerminalBuffer(terminalWidth(), terminalHeight())
        var key = getKey()
        pr.render(tb, key)
+       case key
+        of Key.Q: exitProc()
+        else: discard
+
        tb.display()
        sleep(20)
 
